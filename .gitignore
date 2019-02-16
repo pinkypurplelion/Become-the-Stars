@@ -1,4 +1,6 @@
 
 node-backend/node_modules/
 
+node-store/node_modules/
+
 node-backend/\.idea/
