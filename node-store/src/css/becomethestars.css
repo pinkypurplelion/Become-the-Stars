@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Francois+One|Patua+One|Righteous|Staatliches');
+
+
+.navbar-nav {
+    font-family: 'Staatliches', cursive; 
+    font-size: 36px;
+}
+
+@media (max-width: 575px) {
+    .navbar-nav {
+        font-family: 'Staatliches', cursive; 
+        font-size: 24px;
+    }
+}
+
+
+#carouselTitle {
+    font-family: 'Righteous', cursive;
+    font-size: 88px;
+}
+
+#carouselSubtitle {
+    font-family: 'Patua One', cursive;
+    font-size: 30px;
+}
+
+#carousel-item-title {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+@media (max-width: 1040px) {
+    #carouselTitle {
+        font-family: 'Righteous', cursive;
+        font-size: 70px;
+    }
+    
+    #carouselSubtitle {
+        font-family: 'Patua One', cursive;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 840px) {
+    #carouselTitle {
+        font-family: 'Righteous', cursive;
+        font-size: 48px;
+    }
+    
+    #carouselSubtitle {
+        font-family: 'Patua One', cursive;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 575px) {
+    #carouselTitle {
+        font-family: 'Righteous', cursive;
+        font-size: 28px;
+    }
+    
+    #carouselSubtitle {
+        font-family: 'Patua One', cursive;
+        font-size: 12px;
+    }
+}
+
+.page-heading h1 {
+    font-family: 'Courgette', cursive;
+    font-size: 54px;
+    text-align: center;
+}
+
+@media (max-width: 575px) {
+    .page-heading h1 {
+        font-family: 'Courgette', cursive;
+        font-size: 40px;
+        text-align: center;
+    }
+}
+
+.page-body p {
+    font-family: 'Francois One', sans-serif;
+    font-size: 28px;
+    text-align: justify;  
+    -moz-text-align-last: center; /* Code for Firefox */
+    text-align-last: center;
+}
+
+@media (max-width: 575px) {
+    .page-body p {
+        font-family: 'Francois One', sans-serif;
+        font-size: 20px;
+        text-align: justify;  
+        -moz-text-align-last: center; /* Code for Firefox */
+        text-align-last: center;
+    }
+}
+
+.carousel-caption {
+    top: 50%;
+    transform: translateY(-50%);
+    bottom: initial;
+}
+
+.card {
+    background-color: #313f4c;
+}
+
+
+.card-title {
+    text-align: center;
+}
+
+.card-text {
+    text-align: justify;  
+    -moz-text-align-last: center; /* Code for Firefox */
+    text-align-last: center;
+}
+
+.card-price {
+    color: lightslategray;
+    font-family: 'Francois One', sans-serif; 
+    font-size: 20px;
+}
+
+.mob-notice {
+    color: lightslategray;
+    font-size: 14px;
+}
+
+.package-options {
+    font-family: 'Patua One', cursive;
+    text-align: justify;
+}
+
+.package-heading {
+    font-family: 'Francois One', sans-serif; 
+    font-size: 36px;
+}
+
+.package-notification {
+    font-family: 'Francois One', sans-serif; 
+    font-size: 30px;
+}
+
+.package-price {
+    color: lightslategray;
+    font-family: 'Francois One', sans-serif; 
+    font-size: 24px;
+}
+
+.form-total {
+    font-family: 'Francois One', sans-serif; 
+    font-size: 36px;
+    padding: none;
+    margin: none;
+}
+
+.form-comment {
+    padding: none;
+    margin: none;
+}
+
+.form-button {
+    width: 100%;
+    height: 90%;
+    font-family: 'Francois One', sans-serif; 
+    font-size: 36px;
+}
+
+.form-label {
+    font-family: 'Francois One', sans-serif; 
+    font-size: 20px;
+    color: lightslategray;
+}
+
+.form-control {
+    font-family: 'Patua One', cursive;
+}
+
+option {
+    font-family: 'Patua One', cursive;
+}
+
+body {
+    background-color: #212529;
+    color: white;
+}
+
+footer {
+    background-color: #343a40;
+}
+
+hr {
+    border-color: #999999
+}
