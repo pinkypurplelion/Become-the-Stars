@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Courgette|Francois+One|Patua+One|Righteous|Staatliches');
+
+body {
+  background-color: #212529;
+  color: white;
+  font-size: 1.5vw;
+  text-decoration: none;
+}
+
+.bts-nav {
+  font-size: 3vw;
+  font-family: 'Staatliches', cursive;
+  color: gray;
+}
+
+.nav-item {
+  padding: none;
+  margin: none;
+  font-size: 3vw;
+}
+
+.carousel-title {
+  font-family: 'Righteous', cursive;
+  font-size: 8vw;
+}
+
+.carousel-subtitle {
+  font-family: 'Patua One', cursive;
+  font-size: 2.5vw;
+}
+
+.carousel-caption {
+  top: 50%;
+  transform: translateY(-50%);
+  bottom: initial;
+}

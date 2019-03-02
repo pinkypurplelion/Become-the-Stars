@@ -40,10 +40,10 @@ class Index extends Component {
                         
                     </div>
                     <br/>
-                    <div class="col-xl-8 offset-xl-2 text-center">
+                    {/* <div class="col-xl-8 offset-xl-2 text-center">
                         <a href="store.html#title" class="btn btn-primary">Our Stellar Packages</a>
                         <hr />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </fragment>

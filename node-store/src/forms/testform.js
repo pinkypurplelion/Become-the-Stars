@@ -11,7 +11,7 @@ var success = false;
 
 const CLIENT = {
     sandbox: 'AVG6Fjd3v6tUB6dvhQxGhIBZgEvzE3sGDMxUP_eAVcEe69Z2hgheMguLOIaQmjA1817pIyMqbisLshrJ',
-    production: 'xxx',
+    production: 'AcS312DYyx4CSn9Vcq95s4fwCS2IAmx6jGOgqZGzmHYDn3_mv6ZdOmi8J-plUNueyTxoTGyLIFCZQoVC',
 }
 
 const ENV = process.env.NODE_ENV === 'production' ? 'production' : 'sandbox';
