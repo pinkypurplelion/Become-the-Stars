@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
+import StarDetails from './StarDetails';
 import UserDetails from './UserDetails';
-import PersonalDetails from './PersonalDetails';
-import Confirmation from './Confirmation';
-import Success from './Success';
+// import Confirmation from './Confirmation';
+// import Success from './Success';
 
 class MainForm extends Component {
     state = {
         step: 1,
-        firstName: '',
-        lastName: '',
+        star_type: 'Visible Star',
+        star_hemisphere: 'Southern Hemisphere',
+        star_name: '',
+        name: '',
+        order_total: 15.00,
         email: '',
-        age: '',
-        city: '',
-        country: ''
     }
 
     nextStep = () => {
@@ -35,30 +35,30 @@ class MainForm extends Component {
 
     render(){
         const {step} = this.state;
-        const { firstName, lastName, email, age, city, country } = this.state;
-        const values = { firstName, lastName, email, age, city, country };
+        const {star_type, star_hemisphere, star_name, name, order_total, email,} = this.state;
+        const values = {star_type, star_hemisphere, star_name, name, order_total, email,};
         switch(step) {
         case 1:
-            return <UserDetails 
+            return <StarDetails 
                     nextStep={this.nextStep} 
                     handleChange = {this.handleChange}
                     values={values}
                     />
         case 2:
-            return <PersonalDetails 
+            return <UserDetails 
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     handleChange = {this.handleChange}
                     values={values}
                     />
-        case 3:
-            return <Confirmation 
-                    nextStep={this.nextStep}
-                    prevStep={this.prevStep}
-                    values={values}
-                    />
-        case 4:
-            return <Success />
+        // case 3:
+        //     return <Confirmation 
+        //             nextStep={this.nextStep}
+        //             prevStep={this.prevStep}
+        //             values={values}
+        //             />
+        // case 4:
+        //     return <Success />
         }
     }
 }
