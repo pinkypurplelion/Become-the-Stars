@@ -41,7 +41,7 @@ class UserDetails extends Component{
                             <button class="btn btn-outline-info form-button" onClick={this.back}>Back</button>
                         </div>
                         <div class="col-3">
-                            <button class="btn btn-outline-info form-button" onClick={this.saveAndContinue}>Next >></button>
+                            <button class="btn btn-outline-info form-button" onClick={this.saveAndContinue}>Next</button>
                         </div>
                     </div>
                 </form>
