@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Courgette|Francois+One|Patua+One|Righteous|Staatliches');
+@import url('https://fonts.googleapis.com/css?family=Courgette|Francois+One|Patua+One|Righteous|Staatliches|Germania+One');
 
 body {
   background-color: #212529;
@@ -7,17 +7,118 @@ body {
   text-decoration: none;
 }
 
+p {
+  font-family: 'Francois One', sans-serif;
+  text-align: justify;  
+  -moz-text-align-last: center; /* Code for Firefox */
+  text-align-last: center;
+}
+
+.package-heading {
+  text-align: center;
+  font-family: 'Francois One', sans-serif;
+  font-size: 2vw;
+}
+
+.card {
+  border: none;
+}
+
+.card-body {
+  font-family: 'Francois One', sans-serif;
+  background-color: #212529;
+}
+
+.card-title {
+  font-family: 'Francois One', sans-serif;
+  font-size: 2vw;
+}
+
+.card-text {
+  color: #c1c1c1;
+  font-family: 'Francois One', sans-serif;
+  text-align: left; 
+  -moz-text-align-last: left; /* Code for Firefox */
+  text-align-last: left;
+}
+
 .bts-nav {
-  font-size: 3vw;
   font-family: 'Staatliches', cursive;
   color: gray;
+  padding: none;
+  margin: none;
+}
+
+.bts-page-heading {
+  text-align: center;
+  font-family: 'Germania One', cursive;
+  font-size: 96px;
+  margin-bottom: -12px;
+}
+
+.bts-store-heading-nav {
+  text-align: center;
+  margin-top: 12px;
 }
 
 .nav-item {
-  padding: none;
-  margin: none;
-  font-size: 3vw;
+  display: block;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+@media (max-width: 1440px)
+{
+  .nav-item {
+    font-size: 30px;
+  }
+
+  .bts-page-heading {
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 1024px)
+{
+  .nav-item {
+    font-size: 24px;
+  }
+
+  .bts-page-heading {
+    font-size: 54px;
+  }
+}
+
+@media (max-width: 768px)
+{
+  .nav-item {
+    font-size: 24px;
+  }
+
+  .bts-page-heading {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 425px)
+{
+  .nav-item {
+    font-size: 20px;
+  }
+
+  .bts-page-heading {
+    font-size: 28px;
+  }
+}
+
+
 
 .carousel-title {
   font-family: 'Righteous', cursive;
@@ -33,4 +134,10 @@ body {
   top: 50%;
   transform: translateY(-50%);
   bottom: initial;
+}
+
+
+
+.bts-hr-white {
+  border-color: #999999
 }

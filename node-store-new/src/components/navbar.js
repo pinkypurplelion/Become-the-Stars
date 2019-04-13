@@ -4,6 +4,7 @@ class Navbar extends Component {
     render() {
       return (
         <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto bts-nav">
                 <li class="nav-item">
                     <Link class="nav-link" to="/store">Star Store</Link>
@@ -16,6 +17,7 @@ class Navbar extends Component {
                     <Link class="nav-link" to="/contact">Contact Us</Link>
                 </li>
             </ul>
+            </div>
         </nav>
       );
     }

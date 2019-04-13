@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Helmet} from "react-helmet";
 
-class Contact extends Component {
+class Premium extends Component {
   render() {
     return (
       <div>
@@ -31,4 +31,4 @@ class Contact extends Component {
   }
 }
  
-export default Contact;
+export default Premium;
