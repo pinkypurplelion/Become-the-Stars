@@ -50,6 +50,11 @@ class UserDetails extends Component{
                                 <input type="recipient_email" class="form-control" id="recipient_email" aria-describedby="emailHelp" placeholder="josh@smith.com" value={values.recipient_email} onChange={this.props.handleChange('recipient_email')} />
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                             </div>
+
+                            <div class="form-group">
+                                <label for="recipient_message" class="form-label">Recipient Name</label>
+                                <textarea rows="4" class="form-control" id="recipient_message" placeholder="This message will be included in the email sent to the recipient." value={values.recipient_message} onChange={this.props.handleChange('recipient_message')}></textarea>
+                            </div>
                         </div>
                     }
 

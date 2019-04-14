@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import StarDetails from './StarDetails';
 import UserDetails from './UserDetails';
 import OrderConfirmation from './OrderConfirmation'
-// import Confirmation from './Confirmation';
+import PaymentSelection from './PaymentSelection';
 // import Success from './Success';
 var astro_add = 0;
 var star_add = 0;
@@ -10,6 +10,7 @@ var star_add = 0;
 class MainForm extends Component {
     state = {
         step: 1,
+        package_type: "digital",
         star_type: 'Visible',
         star_hemisphere: 'Southern Hemisphere',
         star_name: '',
@@ -23,6 +24,7 @@ class MainForm extends Component {
         recipient: 'true',
         recipient_name: '',
         recipient_email: '',
+        recipient_message: '',
         promo: '',
         discount: 0,
     }
@@ -68,8 +70,8 @@ class MainForm extends Component {
 
     render(){
         const {step} = this.state;
-        const {star_type, star_hemisphere, star_name, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, promo, discount} = this.state;
-        const values = {star_type, star_hemisphere, star_name, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, promo, discount};
+        const {package_type, star_type, star_hemisphere, star_name, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, recipient_message, promo, discount} = this.state;
+        const values = {package_type, star_type, star_hemisphere, star_name, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, recipient_message, promo, discount};
         switch(step) {
         case 1:
             return <StarDetails 
@@ -86,6 +88,13 @@ class MainForm extends Component {
                     />
         case 3:
             return <OrderConfirmation 
+                    nextStep={this.nextStep}
+                    prevStep={this.prevStep}
+                    handleChange = {this.handleChange}
+                    values={values}
+                    />
+        case 4:
+            return <PaymentSelection 
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     handleChange = {this.handleChange}

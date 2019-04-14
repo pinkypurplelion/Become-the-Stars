@@ -15,7 +15,7 @@ class StarDetails extends Component{
                 <form>
                     <div class="form-group">
                         <label for="star_name" class="form-label">Star Name</label>
-                        <input type="text" class="form-control" id="star_name" placeholder="Star name" value={values.star_name} onChange={this.props.handleChange('star_name')} />
+                        <input type="text" class="form-control" id="star_name" placeholder="Star name" value={values.star_name} onChange={this.props.handleChange('star_name')}/>
                     </div>
                     <div class="form-group">
                         <label for="star_type" class="form-label">Select Star Type</label>

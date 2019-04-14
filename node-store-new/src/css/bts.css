@@ -150,6 +150,11 @@ p {
   text-align-last: left;
 }
 
+.package-heading {
+  font-family: 'Francois One', sans-serif; 
+  font-size: 36px;
+}
+
 .package-heading-form {
   font-family: 'Francois One', sans-serif; 
   font-size: 2.3vw;
@@ -221,4 +226,15 @@ p {
   padding-top: 0px;
   padding-bottom: 0px;
   margin-top: -20px;
+}
+
+.mob-notice {
+  color: lightslategray;
+  font-size: 14px;
+}
+
+.card-price {
+  color: lightslategray;
+  font-family: 'Francois One', sans-serif; 
+  font-size: 20px;
 }

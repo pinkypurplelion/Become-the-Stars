@@ -9,8 +9,11 @@ import Contact from "./pages/Contact";
 import Digital from "./pages/Digital";
 import Premium from "./pages/Premium";
 import Deluxe from "./pages/Deluxe";
-import Banner from "./components/banner"
-import Navbar from "./components/navbar"
+import Thanks from "./pages/Thanks";
+import Banner from "./components/banner";
+import Navbar from "./components/navbar";
+
+
 
 
 class Main extends Component {
@@ -25,6 +28,7 @@ class Main extends Component {
                         <Route exact path="/" component={Home}/>
                         <Route exact path="/store" component={Store}/>
                         <Route exact path="/contact" component={Contact}/>
+                        <Route exact path="/thanks" component={Thanks}/>
                         <Route exact path="/store/digital" component={Digital}/>
                         <Route exact path="/store/premium" component={Premium}/>
                         <Route exact path="/store/deluxe" component={Deluxe}/>

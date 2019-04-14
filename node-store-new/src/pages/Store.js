@@ -32,8 +32,9 @@ class Stuff extends Component {
                     no physical gifts <br />
                     addon astrology pack <br />
                     standard star <br /> <br />
-                    <a type="button" class="btn btn-info" href="/#/store/digital">Buy Now >></a>
+                    <a class="btn btn-outline-info form-button-promo" href="/#/store/digital">Buy Now >></a>
                   </p>
+                  <p class="card-price">$15 - $35</p>
                   <hr class="bts-hr-white"/>
                 </div>
                 <div class="col-4">
@@ -49,8 +50,9 @@ class Stuff extends Component {
                     premium physical gifts <br />
                     addon astrology pack <br />
                     constellation star <br /> <br />
-                    <a type="button" class="btn btn-info" href="/#/store/premium">Buy Now >></a>
+                    <a class="btn btn-outline-info form-button-promo" href="/#/store/premium">Buy Now >></a>
                   </p>
+                  <p class="card-price">$30 - $65</p>
                   <hr class="bts-hr-white"/>
                 </div>
                 <div class="col-4">
@@ -66,8 +68,9 @@ class Stuff extends Component {
                     deluxe physical gifts <br />
                     optional astrology pack <br />
                     superbright star <br /> <br />
-                    <a type="button" class="btn btn-info" href="/#/store/deluxe">Buy Now >></a>
+                    <a class="btn btn-outline-info form-button-promo" href="/#/store/deluxe">Buy Now >></a>
                   </p>
+                  <p class="card-price">$65 - $120</p>
                   <hr class="bts-hr-white"/>
                 </div>
               </div>

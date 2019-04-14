@@ -12,7 +12,8 @@ password = encodeURIComponent('Willy Wonka Chocolate Factory'),
 authMechanism = 'DEFAULT',
 authSource = 'admin';
 
-const mongourl = (`mongodb://${user}:${password}@localhost:27017/?authMechanism=${authMechanism}&authSource=${authSource}`)
+// const mongourl = (`mongodb://${user}:${password}@localhost:27017/?authMechanism=${authMechanism}&authSource=${authSource}`)
+const mongourl = (`mongodb://localhost:27017`)
 let db;
 
 const client = new MongoClient(mongourl);
@@ -36,12 +37,16 @@ app.use(cors({
 const port = 3001
 
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Hello World!'));
+
+app.post('/verify/promo', (req, res) => {
+    
+});
 
 app.post('/post/form', (req, res) => {
     const userData = req.body['form'];
     const paymentData = req.body['payment'];
-    //console.log(userData, paymentData);
+    console.log(userData, paymentData);
     
     let uid, oid, srn, sin;
     let rid = '';
@@ -56,20 +61,20 @@ app.post('/post/form', (req, res) => {
     unitools.generateAlphanumericString(11, id => srn = id, false);
     unitools.generateAlphanumericString(10, id => sin = id, false);
 
-    if (userData.receiving === 'no') {
+    if (userData.recipient === 'true') {
         unitools.generateAlphanumericString(10, id => rid = id);
         urecip = true;
-        recipient_data = {id: rid, name: userData.receiver_name, email: userData.receiver_email, message: userData.receiver_message};
+        recipient_data = {id: rid, name: userData.recipient_name, email: userData.recipient_email, message: userData.recipient_message};
     }
 
 
-    if (userData.extra.astrology_package === 'yes')
+    if (userData.astrology_package === 'true')
         extras_data = {name: 'astrology_package',
-                        price: 10,
-                        other_information: userData.extra.star_sign}
+                        price: userData.astrology_package_price,
+                        other_information: userData.astrology_sign}
         
     
-    let package_data = {type: userData.package,
+    let package_data = {type: userData.package_type,
         extras: extras_data,
     };
 
@@ -77,11 +82,10 @@ app.post('/post/form', (req, res) => {
                         package: package_data, 
                         customer: {
                             id: uid,
-                            first_name: userData.first_name,
-                            last_name: userData.last_name,
+                            name: userData.name,
                             email: userData.email
                         }, 
-                        price: userData.price, 
+                        price: userData.order_total, 
                         is_user_recipient: urecip, 
                         recipient: recipient_data, 
                         paypal_details: {
@@ -98,7 +102,7 @@ app.post('/post/form', (req, res) => {
     starsDocument = {identification_number: sin,
                         name: userData.star_name,
                         location_coordinates: "",
-                        location_hemisphere: userData.star_location,
+                        location_hemisphere: userData.star_hemisphere,
                         type: userData.star_type,
                         unique: false,
                         star_registration_number: srn
