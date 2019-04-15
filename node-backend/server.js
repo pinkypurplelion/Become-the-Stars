@@ -2,8 +2,6 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const unitools = require('./universal-tools');
-// const MongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
 
 var mongoose = require('mongoose');
 var Order = require('./models/Order');
@@ -12,18 +10,17 @@ var Star = require('./models/Star');
 //Connect to database
 mongoose.connect('mongodb://localhost:27017/becomethestars', {useNewUrlParser: true});
 
+//Authentication
+let user = encodeURIComponent('Admin'),
+password = encodeURIComponent('Willy Wonka Chocolate Factory')
+// mongoose.connect(`mongodb://${user}:${password}@localhost:27017/becomethestars`, {useNewUrlParser: true});
+
 //Verify connection to database
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 
-
 const app = express()
-
-let user = encodeURIComponent('Admin'),
-password = encodeURIComponent('Willy Wonka Chocolate Factory'),
-authMechanism = 'DEFAULT',
-authSource = 'admin';
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
@@ -118,7 +115,7 @@ app.post('/post/form', (req, res) => {
         if (err) return console.error(err);
         console.log('Star Saved');
     });
-    
+
     res.send("Data Received")
 });
 
