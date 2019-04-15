@@ -6,6 +6,7 @@ const unitools = require('./universal-tools');
 var mongoose = require('mongoose');
 var Order = require('./models/Order');
 var Star = require('./models/Star');
+var Promo = require('./models/Promo.js');
 
 //Connect to database
 mongoose.connect('mongodb://localhost:27017/becomethestars', {useNewUrlParser: true});
@@ -36,13 +37,34 @@ const port = 3001
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.post('/verify/promo', (req, res) => {
-    const promo = req.body['promo'];
+    let today = new Date();
+    console.log('verifying promo code');
+    const promo_code = req.body['code'];
+    Promo.findOne({code: promo_code}, (error, promo) =>{
+        if (error) {console.log('error when finding promo code db entry'); return res.send(error);}
+        if (promo) {
+            let expiration_date = promo.expiration_date;
+            if (expiration_date >= today) {
+                console.log('promo code valid');
+                return res.send({valid: true, reason: 'valid', promo: promo})
+            }
+            else {
+                console.log('promo code expired');
+                return res.send({valid: false, reason: 'expired'});
+            }
+        }
+        else {
+            console.log('promo code not found');
+            res.send({valid: false, reason: 'not found'});
+        }  
+    })
 });
 
 app.post('/post/form', (req, res) => {
     const userData = req.body['form'];
     const paymentData = req.body['payment'];
-    console.log(userData, paymentData);
+    console.log('processing form submit data');
+    // console.log(userData, paymentData);
     
     let uid, oid, srn, sin;
     let rid = '';
@@ -120,4 +142,4 @@ app.post('/post/form', (req, res) => {
 });
 
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`Server listening on port ${port}!`))

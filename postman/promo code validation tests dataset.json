@@ -1,0 +1,17 @@
+[
+    {
+        "promocode": "promofixed",
+        "valid": true,
+        "reason": "valid"
+    },
+    {
+        "promocode": "promoexpired",
+        "valid": false,
+        "reason": "expired"
+    },
+    {
+        "promocode": "promonotexist",
+        "valid": false,
+        "reason": "not found"
+    }
+]
