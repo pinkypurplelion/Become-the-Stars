@@ -14,6 +14,7 @@ class MainForm extends Component {
         star_type: 'Visible',
         star_hemisphere: 'Southern Hemisphere',
         star_name: '',
+        message: '',
         name: '',
         base_price: 15.00,
         order_total: 15.00,
@@ -70,8 +71,8 @@ class MainForm extends Component {
 
     render(){
         const {step} = this.state;
-        const {package_type, star_type, star_hemisphere, star_name, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, recipient_message, promo, discount} = this.state;
-        const values = {package_type, star_type, star_hemisphere, star_name, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, recipient_message, promo, discount};
+        const {package_type, star_type, star_hemisphere, star_name, message, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, recipient_message, promo, discount} = this.state;
+        const values = {package_type, star_type, star_hemisphere, star_name, message, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, recipient_message, promo, discount};
         switch(step) {
         case 1:
             return <StarDetails 

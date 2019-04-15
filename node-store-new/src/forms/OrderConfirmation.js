@@ -14,6 +14,7 @@ class OrderConfirmation extends Component{
 
     render(){
         const { values } = this.props;
+
         return(
             <div>
                 <h1 className="ui centered">Review Order</h1>
@@ -27,6 +28,13 @@ class OrderConfirmation extends Component{
                 <p class="form-label">Star Location</p>
                 <p class="form-p-overview">{values.star_hemisphere}</p>
 
+                {values.message.length > 0 &&
+                    <div>
+                        <p class="form-label">Certificate Message</p>
+                        <p class="form-p-overview">{values.message}</p>
+                    </div>
+                }
+                
                 {values.astrology_package == 'true' &&
                     <div>
                         <p class="form-label">Zodiac Sign (For Astrology Package)</p>
@@ -47,6 +55,9 @@ class OrderConfirmation extends Component{
 
                         <p class="form-label">Recipient Email</p>
                         <p class="form-p-overview">{values.recipient_email}</p>
+
+                        <p class="form-label">Message for Recipient</p>
+                        <p class="form-p-overview">{values.recipient_message}</p>
                     </div>
                 }
                 

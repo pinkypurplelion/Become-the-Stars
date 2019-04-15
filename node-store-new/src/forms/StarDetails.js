@@ -60,6 +60,11 @@ class StarDetails extends Component{
                         </div>
                     }
 
+                    <div class="form-group">
+                        <label for="message" class="form-label">Certificate Message</label>
+                        <textarea rows="2" class="form-control" id="message" placeholder="A short message, around 20-25 words, to be included on the certificate. This is optional." value={values.message} onChange={this.props.handleChange('message')}></textarea>
+                    </div>
+
                     <hr class="bts-hr-white" />
                     <div class="row">
                         <div class="col-5">

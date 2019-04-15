@@ -2,8 +2,21 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const unitools = require('./universal-tools');
-const MongoClient = require('mongodb').MongoClient;
+// const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
+
+var mongoose = require('mongoose');
+var Order = require('./models/Order');
+var Star = require('./models/Star');
+
+//Connect to database
+mongoose.connect('mongodb://localhost:27017/becomethestars', {useNewUrlParser: true});
+
+//Verify connection to database
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+
 
 const app = express()
 
@@ -11,20 +24,6 @@ let user = encodeURIComponent('Admin'),
 password = encodeURIComponent('Willy Wonka Chocolate Factory'),
 authMechanism = 'DEFAULT',
 authSource = 'admin';
-
-// const mongourl = (`mongodb://${user}:${password}@localhost:27017/?authMechanism=${authMechanism}&authSource=${authSource}`)
-const mongourl = (`mongodb://localhost:27017`)
-let db;
-
-const client = new MongoClient(mongourl);
-
-client.connect(function(err) {
-    assert.equal(null, err);
-    console.log("Connected successfully to server");
-  
-    db = client.db('becomethestars');
-    
-});
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
@@ -40,7 +39,7 @@ const port = 3001
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.post('/verify/promo', (req, res) => {
-    
+    const promo = req.body['promo'];
 });
 
 app.post('/post/form', (req, res) => {
@@ -69,67 +68,57 @@ app.post('/post/form', (req, res) => {
 
 
     if (userData.astrology_package === 'true')
-        extras_data = {name: 'astrology_package',
-                        price: userData.astrology_package_price,
-                        other_information: userData.astrology_sign}
+        extras_data = {astrology_package: {
+            price: userData.astrology_package_price,
+            astrology_sign: userData.astrology_sign
+        }}
         
     
-    let package_data = {type: userData.package_type,
+    let package_data = {tier: userData.package_type,
         extras: extras_data,
     };
 
-    ordersDocument = {order_id: oid,
-                        package: package_data, 
-                        customer: {
-                            id: uid,
-                            name: userData.name,
-                            email: userData.email
-                        }, 
-                        price: userData.order_total, 
-                        is_user_recipient: urecip, 
-                        recipient: recipient_data, 
-                        paypal_details: {
-                            payer_id: paymentData.payerID,
-                            payment_id: paymentData.paymentID,
-                            payment_token: paymentData.paymentToken,
-                            return_url: paymentData.returnUrl
-                        }, 
-                        star_registration_number: srn,
-                        logged: false,
-                        shipped: false,
-                    };
+    var order = new Order({
+        order_id: oid,
+        package: package_data, 
+        customer: {
+            id: uid,
+            name: userData.name,
+            email: userData.email
+        }, 
+        price: userData.order_total, 
+        message: userData.message,
+        is_user_recipient: urecip, 
+        recipient: recipient_data, 
+        paypal_details: {
+            payer_id: paymentData.payerID,
+            payment_id: paymentData.paymentID,
+            payment_token: paymentData.paymentToken,
+            return_url: paymentData.returnUrl
+        }, 
+        star_registration_number: srn,
+    });
 
-    starsDocument = {identification_number: sin,
-                        name: userData.star_name,
-                        location_coordinates: "",
-                        location_hemisphere: userData.star_hemisphere,
-                        type: userData.star_type,
-                        unique: false,
-                        star_registration_number: srn
-                    };
+    order.save(function (err, order) {
+        if (err) return console.error(err);
+        console.log('Order Saved');
+    });
 
+    var star = new Star({
+        identification_number: sin,
+        name: userData.star_name,
+        location_coordinates: "",
+        location_hemisphere: userData.star_hemisphere,
+        type: userData.star_type,
+        unique: false,
+        star_registration_number: srn
+    })
+
+    star.save(function (err, star) {
+        if (err) return console.error(err);
+        console.log('Star Saved');
+    });
     
-        
-        const collection_orders = db.collection('orders');
-        const collection_stars = db.collection('stars');
-
-        // Insert some documents
-        collection_orders.insertOne(ordersDocument, function(err, result) {
-            assert.equal(err, null);
-            assert.equal(1, result.result.n);
-            assert.equal(1, result.ops.length);
-            // console.log("Order Successfully Added to Database");
-        });
-
-        collection_stars.insertOne(ordersDocument, function(err, result) {
-            assert.equal(err, null);
-            assert.equal(1, result.result.n);
-            assert.equal(1, result.ops.length);
-            // console.log("Star Successfully Added to Database");
-        });
-
-        
-
     res.send("Data Received")
 });
 

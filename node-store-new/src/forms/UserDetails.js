@@ -52,7 +52,7 @@ class UserDetails extends Component{
                             </div>
 
                             <div class="form-group">
-                                <label for="recipient_message" class="form-label">Recipient Name</label>
+                                <label for="recipient_message" class="form-label">Message for Recipient</label>
                                 <textarea rows="4" class="form-control" id="recipient_message" placeholder="This message will be included in the email sent to the recipient." value={values.recipient_message} onChange={this.props.handleChange('recipient_message')}></textarea>
                             </div>
                         </div>
