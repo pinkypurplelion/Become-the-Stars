@@ -195,6 +195,14 @@ p {
   text-align-last: left;
 }
 
+.form-discount {
+  padding: none;
+  margin: none;
+  text-align: left;
+  -moz-text-align-last: left; /* Code for Firefox */
+  text-align-last: left;
+}
+
 .form-total-money {
   font-family: 'Francois One', sans-serif; 
   font-size: 2.3vw;
@@ -237,4 +245,8 @@ p {
   color: lightslategray;
   font-family: 'Francois One', sans-serif; 
   font-size: 20px;
+}
+
+.form-valid {
+  color: palevioletred;
 }

@@ -70,7 +70,7 @@ class Stuff extends Component {
                     superbright star <br /> <br />
                     <a class="btn btn-outline-info form-button-promo" href="/#/store/deluxe">Buy Now >></a>
                   </p>
-                  <p class="card-price">$65 - $120</p>
+                  <p class="card-price">$65 - $135</p>
                   <hr class="bts-hr-white"/>
                 </div>
               </div>

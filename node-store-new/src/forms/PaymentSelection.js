@@ -25,8 +25,6 @@ class PaymentSelection extends Component {
     }
     
     sendDataToServer = (data, payment) => {
-        console.log("sending data to server")
-        console.log(JSON.stringify({'form': data, 'payment': payment}))
         fetch('http://localhost:3001/post/form', {
             method: 'POST',
             headers: {
@@ -68,6 +66,7 @@ class PaymentSelection extends Component {
                 <div class="row">
                     <div class="col-5">
                         <p class="form-total"> Order Total: </p>
+                        {values.discount > 0 && <p class="text-muted form-discount">Discount: ${values.discount}</p>}
                     </div>
                     <div class="col-1">
                         <p class="form-total-money">${values.order_total}</p>

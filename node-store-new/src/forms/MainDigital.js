@@ -22,12 +22,18 @@ class MainForm extends Component {
         astrology_package: 'false',
         astrology_package_price: 10.00,
         astrology_sign: 'Aries',
-        recipient: 'true',
+        recipient: 'false',
         recipient_name: '',
         recipient_email: '',
         recipient_message: '',
         promo: '',
         discount: 0,
+        formErrors: {starName: ''},
+        formValid: false,
+        starNameValid: false,
+        visible_star_price: 0,
+        constellation_star_price: 5,
+        superbright_star_price: 10,
     }
 
     nextStep = () => {
@@ -45,7 +51,8 @@ class MainForm extends Component {
     }
 
     handleChange = input => event => {
-        this.setState({ [input] : event.target.value })
+        this.setState({ [input] : event.target.value });
+
         if (input == "astrology_package") {
             if (event.target.value == "true") {
                 astro_add = 10;
@@ -69,10 +76,15 @@ class MainForm extends Component {
         this.setState({order_total: this.state.base_price + astro_add + star_add - this.state.discount})
     }
 
+    updateDiscount = (dis) =>
+    {
+        this.setState({discount: dis});
+        this.setState({order_total: this.state.base_price + astro_add + star_add - this.state.discount})
+    }
+
     render(){
         const {step} = this.state;
-        const {package_type, star_type, star_hemisphere, star_name, message, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, recipient_message, promo, discount} = this.state;
-        const values = {package_type, star_type, star_hemisphere, star_name, message, name, order_total, email, astrology_package, astrology_package_price, astrology_sign, recipient, recipient_name, recipient_email, recipient_message, promo, discount};
+        const values = this.state;
         switch(step) {
         case 1:
             return <StarDetails 
@@ -92,6 +104,7 @@ class MainForm extends Component {
                     nextStep={this.nextStep}
                     prevStep={this.prevStep}
                     handleChange = {this.handleChange}
+                    updateDiscount = {this.updateDiscount}
                     values={values}
                     />
         case 4:

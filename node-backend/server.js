@@ -21,7 +21,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 
 
-const app = express()
+const app = express();
 
 app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
@@ -29,9 +29,9 @@ app.use(bodyParser.urlencoded({
 })); // support encoded bodies
 app.use(cors({
     origin: 'http://localhost:3000'
-}))
+}));
 
-const port = 3001
+const port = 3001;
 
 
 app.get('/', (req, res) => res.send('Hello World!'));
@@ -142,4 +142,4 @@ app.post('/post/form', (req, res) => {
 });
 
 
-app.listen(port, () => console.log(`Server listening on port ${port}!`))
+app.listen(port, () => console.log(`Server listening on port ${port}!`));

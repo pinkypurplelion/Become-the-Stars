@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 
 class StarDetails extends Component{
 
+    state = {
+        starNameValid: true
+    }
+
     saveAndContinue = (e) => {
         e.preventDefault()
-        this.props.nextStep()
+        if (this.props.values.star_name.length > 0) {this.setState({starNameValid: true}); return this.props.nextStep()} else this.setState({starNameValid: false})
     }
 
     render(){
@@ -16,13 +20,14 @@ class StarDetails extends Component{
                     <div class="form-group">
                         <label for="star_name" class="form-label">Star Name</label>
                         <input type="text" class="form-control" id="star_name" placeholder="Star name" value={values.star_name} onChange={this.props.handleChange('star_name')}/>
+                        {this.state.starNameValid == false && <small class="form-text form-valid">Please include a star name.</small>}
                     </div>
                     <div class="form-group">
                         <label for="star_type" class="form-label">Select Star Type</label>
                         <select class="form-control" id="star_type" value={values.star_type} onChange={this.props.handleChange('star_type')}>
-                            <option value="Visible">Visible Star</option>
-                            <option value="Constellation">Constellation Star (+$5.00)</option>
-                            <option value="Superbright">Superbright Star (+$10.00)</option>
+                            <option value="Visible">Visible Star (+${values.visible_star_price}.00)</option>
+                            <option value="Constellation">Constellation Star (+${values.constellation_star_price}.00)</option>
+                            <option value="Superbright">Superbright Star (+${values.superbright_star_price}.00)</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -69,6 +74,7 @@ class StarDetails extends Component{
                     <div class="row">
                         <div class="col-5">
                             <p class="form-total"> Order Total: </p>
+                            {values.discount > 0 && <p class="text-muted form-discount">Discount: ${values.discount}</p>}
                         </div>
                         <div class="col-1">
                             <p class="form-total-money">${values.order_total}</p>
