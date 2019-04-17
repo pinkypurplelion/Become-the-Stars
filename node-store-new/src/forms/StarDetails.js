@@ -65,6 +65,12 @@ class StarDetails extends Component{
                         </div>
                     }
 
+                    {values.package_type == 'premium' && 
+                        <div>
+                            
+                        </div>
+                    }
+
                     <div class="form-group">
                         <label for="message" class="form-label">Certificate Message</label>
                         <textarea rows="2" class="form-control" id="message" placeholder="A short message, around 20-25 words, to be included on the certificate. This is optional." value={values.message} onChange={this.props.handleChange('message')}></textarea>

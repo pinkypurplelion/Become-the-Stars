@@ -1,14 +1,11 @@
 {
-  "name": "best-practices",
-  "description": "A package using versioning best-practices",
-  "author": "Charlie Robbins <charlie@nodejitsu.com>",
+  "name": "bts-server",
+  "description": "The backend server for the Become the Stars website",
+  "author": "Liam Angus",
   "dependencies": {
-    "assert": "^1.4.1",
-    "bcrypt": "^3.0.6",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "express": "^4.16.4",
-    "mongodb": "^3.1.13",
     "mongoose": "^5.5.1",
     "optimist": "0.2.x"
   },
