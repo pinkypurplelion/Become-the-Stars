@@ -11,6 +11,9 @@
 		},
 		{
 			"path": "node-store-new"
+		},
+		{
+			"path": "node-admin"
 		}
 	],
 	"settings": {}
