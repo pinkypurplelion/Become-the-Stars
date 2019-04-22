@@ -8,8 +8,7 @@ standard react app port (bts): 3005
 ### General commands:
 `sudo npm install -g npm`: update npm  
 
-### Deploying dir
-React App to Production:
+### Deploying React App to Production:
 `sudo npm install`: install all packages listed in package.json file  
 `sudo npm audit fix`: fixes vulnerabilities automatically identified  
 `pm2 stop all`: stops all processes so maximum ram is devoted to npm build  
@@ -24,6 +23,8 @@ A guide if you need help: https://andrewpark.ca/blog/create-and-deploy-a-react-a
 `pm2 start {filename}`: starts server as process if not already a process  
 remember to update database authentication to production command.  
 
+### Updating nginx configurations
+`sudo systemctl reload nginx`: after changes have been made, this reloads the config files used by nginx implementing changes.
 
 ### pm2 commands list:
 `pm2 list`: lists all processes and their status  

@@ -30,7 +30,7 @@ class Home extends Component {
                     <div class="card-body">
                         <h4 class="card-title">Premium Gift Package</h4>
                         <p class="card-text">The greatest gift for your perfect person, and it happens to be our most popular package. Not only do you get a premium digital gift package, but we also send you physical copies of your star ownership certification, making a stellar present. </p>
-                        <a href="/#/store/premium" style={{fontSize: "1.75vw", color: "white"}}>Buy Now >></a>
+                        <a href="/store/premium" style={{fontSize: "1.75vw", color: "white"}}>Buy Now >></a>
                     </div>
                 </div>
               </div>

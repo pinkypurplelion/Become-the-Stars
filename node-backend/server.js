@@ -36,6 +36,10 @@ const port = 3001;
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
+app.get('/get/:authID', (req, res) => {
+    
+})
+
 app.post('/verify/promo', (req, res) => {
     let today = new Date();
     console.log('verifying promo code');

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './css/index.css';
-import Home from './pages/Home';
+import Home from './Home';
 import * as serviceWorker from './serviceWorker';
 import 'typeface-roboto';
 

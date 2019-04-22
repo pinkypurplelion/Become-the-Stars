@@ -15,12 +15,18 @@ import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems } from './../components/DashboardMenuList';
+import { mainListItems } from './components/DashboardMenuList';
+
+import Dashboard from './pages/Dashboard';
+import Orders from './pages/Orders';
+import Customers from './pages/Customers';
+import Reports from './pages/Reports';
+import Integrations from './pages/Integrations';
+import Database from './pages/Database';
+
 
 const drawerWidth = 240;
 
@@ -146,11 +152,6 @@ class Home extends React.Component {
             >
               Admin Dashboard
             </Typography>
-            <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
           </Toolbar>
         </AppBar>
         <Drawer
@@ -168,9 +169,15 @@ class Home extends React.Component {
           <Divider />
           <List>{mainListItems}</List>
         </Drawer>
-        <main className={classes.content}>
-            {/* <Route exact path="/" component={Dashboard} /> */}
-        </main>
+
+        <div>
+            <Route exact path="/" component={Dashboard} />
+            <Route exact path="/orders" component={Orders} />
+            <Route exact path="/customers" component={Customers} />
+            <Route exact path="/reports" component={Reports} />
+            <Route exact path="/integrations" component={Integrations} />
+            <Route exact path="/database" component={Database} />
+        </div>
       </div>
     </HashRouter>
     );

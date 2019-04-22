@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
   Route,
-  HashRouter,
+  Router,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
@@ -13,13 +13,24 @@ import Thanks from "./pages/Thanks";
 import Banner from "./components/banner";
 import Navbar from "./components/navbar";
 
+import createHistory from 'history/createBrowserHistory'
+import ReactGA from 'react-ga'
 
+const history = createHistory()
+history.listen(location => {
+	ReactGA.set({ page: location.pathname })
+	ReactGA.pageview(location.pathname)
+})
 
 
 class Main extends Component {
+    componentDidMount() {
+      ReactGA.pageview(window.location.pathname)
+    }
+
     render() {
       return (
-        <HashRouter>
+        <Router history={history}>
             <body>
                 <div >
                     <Banner />
@@ -42,7 +53,7 @@ class Main extends Component {
                   </div>
                 </footer>
             </body>
-        </HashRouter>
+        </Router>
       );
     }
   }
