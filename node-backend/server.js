@@ -36,13 +36,16 @@ const port = 3001;
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-app.get('/get/:authID', (req, res) => {
-    
-})
+app.get('/get/:authID/promos', (req, res) => {
+    Promo.find({}, (error, promos) => {
+        console.log('Sending promo codes to client.');
+        res.send(promos);
+    });
+});
 
 app.post('/verify/promo', (req, res) => {
     let today = new Date();
-    console.log('verifying promo code');
+    console.log('Verifying promo code');
     const promo_code = req.body['code'];
     Promo.findOne({code: promo_code}, (error, promo) =>{
         if (error) {console.log('error when finding promo code db entry'); return res.send(error);}
