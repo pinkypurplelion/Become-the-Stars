@@ -21,7 +21,8 @@ class OrderConfirmation extends Component{
 
     saveAndContinue = (e) => {
         e.preventDefault()
-        if (this.props.order_total > 0) {
+        // console.log(this.props.values.order_total)
+        if (this.props.values.order_total > 0) {
             this.props.nextStep()
         } else {
             this.sendDataToServer(this.props.values, {})
