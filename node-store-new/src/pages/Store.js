@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import {Helmet} from "react-helmet";
 
+import StarDigital from './../static/images/star-digital.jpg';
+import StarPremium from './../static/images/star-premium.jpg';
+import StarDeluxe from './../static/images/star-deluxe.jpg';
+
 class Stuff extends Component {
   render() {
     return (
@@ -20,7 +24,7 @@ class Stuff extends Component {
             <div class="col-8 offset-2">
               <div class="row">
                 <div class="col-4">
-                  <img class="img-fluid" src="https://www.geek.com/wp-content/uploads/2014/10/sunultra.jpg" alt="Card cap" />
+                  <img class="img-fluid" src={StarDigital} alt="Card cap" />
                   <hr class="bts-hr-white"/> 
                   <p class="package-heading">
                     Digital Gift Package
@@ -34,11 +38,11 @@ class Stuff extends Component {
                     standard star <br /> <br />
                     <a class="btn btn-outline-info form-button-promo" href="/store/digital">Buy Now >></a>
                   </p>
-                  <p class="card-price">$15 - $35</p>
+                  <p class="card-price">From $15</p>
                   <hr class="bts-hr-white"/>
                 </div>
                 <div class="col-4">
-                  <img class="img-fluid" src="https://cdn.mos.cms.futurecdn.net/DNJ73RxGAEtnRmJh3sfLKY.jpg" alt="Card cap" />
+                  <img class="img-fluid" src={StarPremium} alt="Card cap" />
                   <hr class="bts-hr-white"/> 
                   <p class="package-heading">
                     Premium Gift Package
@@ -52,11 +56,11 @@ class Stuff extends Component {
                     constellation star <br /> <br />
                     <a class="btn btn-outline-info form-button-promo" href="/store/premium">Buy Now >></a>
                   </p>
-                  <p class="card-price">$30 - $65</p>
+                  <p class="card-price">From $30</p>
                   <hr class="bts-hr-white"/>
                 </div>
                 <div class="col-4">
-                  <img class="img-fluid" src="https://cdn.shopify.com/s/files/1/0616/2685/products/Sun-TripleUV-_Venus-transit_f6de48bb-a41c-4abe-9166-b3c1fd275495_1024x1024.jpg?v=1447786686" alt="Card cap" />
+                  <img class="img-fluid" src={StarDeluxe} alt="Card cap" />
                   <hr class="bts-hr-white"/> 
                   <p class="package-heading">
                     Deluxe Gift Package
@@ -70,7 +74,7 @@ class Stuff extends Component {
                     superbright star <br /> <br />
                     <a class="btn btn-outline-info form-button-promo" href="/store/deluxe">Buy Now >></a>
                   </p>
-                  <p class="card-price">$65 - $135</p>
+                  <p class="card-price">From $65</p>
                   <hr class="bts-hr-white"/>
                 </div>
               </div>

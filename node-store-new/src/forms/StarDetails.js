@@ -64,25 +64,93 @@ class StarDetails extends Component{
                             </select>
                         </div>
                     }
-
-                    {values.package_type == 'premium' && 
-                        <div>
-                            
-                        </div>
-                    }
-
+                    
                     <div class="form-group">
                         <label for="message" class="form-label">Certificate Message</label>
                         <textarea rows="2" class="form-control" id="message" placeholder="A short message, around 20-25 words, to be included on the certificate. This is optional." value={values.message} onChange={this.props.handleChange('message')}></textarea>
                     </div>
+                    
+                    {values.package_type != 'digital' && <hr class="bts-hr-white" />}
+                    {values.package_type == 'premium' && 
+                        <div class="form-group">
+                            <label for="embossed_certificate" class="form-label">Include Embossed Certificate</label>
+                            <select class="form-control" id="embossed_certificate" value={values.embossed_certificate} onChange={this.props.handleChange('embossed_certificate')}>
+                                <option value="false">No</option>
+                                <option value="true">Yes (+$10.00)</option>
+                            </select>
+                        </div>
+                    }
+
+                    {values.package_type != 'digital' && 
+                        <div class="form-group">
+                            <label for="a3_star_chart" class="form-label">Upgrade to A3 Star Chart</label>
+                            <select class="form-control" id="a3_star_chart" value={values.a3_star_chart} onChange={this.props.handleChange('a3_star_chart')}>
+                                <option value="false">No</option>
+                                <option value="true">Yes (+$5.00)</option>
+                            </select>
+                        </div>
+                    }
+
+                    {values.package_type == 'deluxe' && 
+                        <div class="form-group">
+                            <label for="book_space_hard" class="form-label">Hardcover Space Appreciation Book</label>
+                            <select class="form-control" id="book_space_hard" value={values.book_space_hard} onChange={this.props.handleChange('book_space_hard')}>
+                                <option value="false">No</option>
+                                <option value="true">Yes (+$15.00)</option>
+                            </select>
+                        </div>
+                    }
+
+                    {values.package_type == 'deluxe' && 
+                        <div class="form-group">
+                            <label for="book_star_hard" class="form-label">Hardcover Star Appreciation Book</label>
+                            <select class="form-control" id="book_star_hard" value={values.book_star_hard} onChange={this.props.handleChange('book_star_hard')}>
+                                <option value="false">No</option>
+                                <option value="true">Yes (+$15.00)</option>
+                            </select>
+                        </div>
+                    }
+
+                    {values.package_type != 'digital' && <hr class="bts-hr-white" />}
+                    {values.package_type != 'digital' && 
+                        <div class="form-group">
+                            <label for="us2" class="form-label">Include Universe Sandbox 2 (game/simulation)</label>
+                            <select class="form-control" id="us2" value={values.us2} onChange={this.props.handleChange('us2')}>
+                                <option value="false">No</option>
+                                <option value="true">Yes (+$30.00)</option>
+                            </select>
+                        </div>
+                    }
+
+                    {values.package_type != 'digital' && 
+                        <div class="form-group">
+                            <label for="ksp" class="form-label">Include Kerbal Space Program (game)</label>
+                            <select class="form-control" id="ksp" value={values.ksp} onChange={this.props.handleChange('ksp')}>
+                                <option value="false">No</option>
+                                <option value="true">Yes (+$40.00)</option>
+                            </select>
+                        </div>
+                    }
+
+                    {values.package_type == 'deluxe' && 
+                        <div class="form-group">
+                            <label for="se" class="form-label">Include Space Engineers (game)</label>
+                            <select class="form-control" id="se" value={values.se} onChange={this.props.handleChange('se')}>
+                                <option value="false">No</option>
+                                <option value="true">Yes (+$20.00)</option>
+                            </select>
+                        </div>
+                    }
 
                     <hr class="bts-hr-white" />
+
+
                     <div class="row">
-                        <div class="col-5">
+                        <div class="col-4">
                             <p class="form-total"> Order Total: </p>
                             {values.discount > 0 && <p class="text-muted form-discount">Discount: ${values.discount}</p>}
                         </div>
-                        <div class="col-1">
+                        <div class="col-2">
                             <p class="form-total-money">${values.order_total}</p>
                         </div>
                         <div class="col-3">

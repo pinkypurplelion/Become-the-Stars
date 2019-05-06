@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import {Helmet} from "react-helmet";
 
+import StarPremium from './../static/images/star-premium.jpg';
+
+
 class Home extends Component {
   render() {
     return (
@@ -25,7 +28,7 @@ class Home extends Component {
               <div class="card">
                 <div class="card-horizontal">
                     <div class="img-square-wrapper">
-                        <img class="img-fluid horizontal-img" style={{maxWidth: '400px'}} src="https://cdn.mos.cms.futurecdn.net/DNJ73RxGAEtnRmJh3sfLKY.jpg" alt="Card cap" />
+                        <img class="img-fluid horizontal-img home-image" src={StarPremium} alt="Card cap" />
                     </div>
                     <div class="card-body">
                         <h4 class="card-title">Premium Gift Package</h4>

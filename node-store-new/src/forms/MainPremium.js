@@ -6,6 +6,10 @@ import PaymentSelection from './PaymentSelection';
 // import Success from './Success';
 var astro_add = 0;
 var star_add = 0;
+var emboss_add = 0;
+var a3_add = 0;
+var ksp_add = 0;
+var us2_add = 0;
 
 class MainForm extends Component {
     state = {
@@ -34,6 +38,10 @@ class MainForm extends Component {
         visible_star_price: -5,
         constellation_star_price: 0,
         superbright_star_price: 10,
+        embossed_certificate: 'false',
+        a3_star_chart: 'false',
+        ksp: 'false',
+        us2: 'false'
     }
 
     nextStep = () => {
@@ -73,13 +81,49 @@ class MainForm extends Component {
                 star_add = -5;
             }
         }
-        this.setState({order_total: this.state.base_price + astro_add + star_add - this.state.discount})
+
+        if (input == "embossed_certificate") {
+            if (event.target.value == "true") {
+                emboss_add = 10;
+            }
+            else {
+                emboss_add = 0;
+            }
+        }
+
+        if (input == "a3_star_chart") {
+            if (event.target.value == "true") {
+                a3_add = 5;
+            }
+            else {
+                a3_add = 0;
+            }
+        }
+
+        if (input == "ksp") {
+            if (event.target.value == "true") {
+                ksp_add = 40;
+            }
+            else {
+                ksp_add = 0;
+            }
+        }
+
+        if (input == "us2") {
+            if (event.target.value == "true") {
+                us2_add = 30;
+            }
+            else {
+                us2_add = 0;
+            }
+        }
+        this.setState({order_total: this.state.base_price + astro_add + star_add + emboss_add + a3_add + ksp_add +us2_add - this.state.discount})
     }
 
     updateDiscount = (dis) =>
     {
         this.setState({discount: dis});
-        this.setState({order_total: this.state.base_price + astro_add + star_add - this.state.discount})
+        this.setState({order_total: this.state.base_price + astro_add + star_add + emboss_add + a3_add + ksp_add +us2_add - this.state.discount})
     }
 
     render(){
@@ -115,7 +159,7 @@ class MainForm extends Component {
                     values={values}
                     />
         default:
-            return <h1>Form error. Please reload the page or <a href='/#/contact'>contact us.</a></h1>
+            return <h1>Form error. Please reload the page or <a href='/contact'>contact us.</a></h1>
         // case 3:
         //     return <Confirmation 
         //             nextStep={this.nextStep}

@@ -119,11 +119,11 @@ class OrderConfirmation extends Component{
                 </form>
                 <hr class="bts-hr-white" />
                 <div class="row">
-                    <div class="col-5">
+                    <div class="col-4">
                         <p class="form-total"> Order Total: </p>
                         {values.discount > 0 && <p class="text-muted form-discount">Discount: ${values.discount}</p>}
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                         <p class="form-total-money">${values.order_total}</p>
                     </div>
                     <div class="col-3">

@@ -115,7 +115,7 @@ class MainForm extends Component {
                     values={values}
                     />
         default:
-            return <h1>Form error. Please reload the page or <a href='/#/contact'>contact us.</a></h1>
+            return <h1>Form error. Please reload the page or <a href='/contact'>contact us.</a></h1>
         // case 3:
         //     return <Confirmation 
         //             nextStep={this.nextStep}
