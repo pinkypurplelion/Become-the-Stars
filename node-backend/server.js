@@ -34,12 +34,27 @@ app.use(cors({
 const port = 3001;
 
 
+function authenticateUser(authID) {
+
+};
+
+
 app.get('/', (req, res) => res.send('Hello World!'));
 
 app.get('/get/:authID/promos', (req, res) => {
     Promo.find({}, (error, promos) => {
         console.log('Sending promo codes to client.');
         res.send(promos);
+    });
+});
+
+app.post('/post/promos', (req,res) => {
+    console.log(req.body);
+    var promo = new Promo(req.body);
+    promo.save(function (err, order) {
+        if (err) return console.error(err);
+        console.log('Promo Saved');
+        res.send("promotion added");
     });
 });
 
