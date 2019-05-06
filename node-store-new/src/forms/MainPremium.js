@@ -117,13 +117,22 @@ class MainForm extends Component {
                 us2_add = 0;
             }
         }
-        this.setState({order_total: this.state.base_price + astro_add + star_add + emboss_add + a3_add + ksp_add +us2_add - this.state.discount})
+        if (this.state.base_price + astro_add + star_add + emboss_add + a3_add + ksp_add +us2_add - this.state.discount < 0) {
+            this.setState({order_total: 0})
+        } else {
+            this.setState({order_total: this.state.base_price + astro_add + star_add + emboss_add + a3_add + ksp_add +us2_add - this.state.discount})
+        }
     }
 
     updateDiscount = (dis) =>
     {
         this.setState({discount: dis});
-        this.setState({order_total: this.state.base_price + astro_add + star_add + emboss_add + a3_add + ksp_add +us2_add - this.state.discount})
+
+        if (this.state.base_price + astro_add + star_add + emboss_add + a3_add + ksp_add +us2_add - this.state.discount < 0) {
+            this.setState({order_total: 0})
+        } else {
+            this.setState({order_total: this.state.base_price + astro_add + star_add + emboss_add + a3_add + ksp_add +us2_add - this.state.discount})
+        }
     }
 
     render(){

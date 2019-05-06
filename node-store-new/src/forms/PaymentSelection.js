@@ -32,7 +32,7 @@ class PaymentSelection extends Component {
             },
             body: JSON.stringify({'form': data, 'payment': payment})
         }).then(setTimeout(function(){
-            window.location.replace("http://localhost:3000/#/thanks");
+            window.location.replace("http://localhost:3000/thanks");
         }, 2000))
     }
 

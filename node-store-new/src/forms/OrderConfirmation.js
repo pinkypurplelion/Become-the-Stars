@@ -7,9 +7,25 @@ class OrderConfirmation extends Component{
         promo_error: '',
     }
 
+    sendDataToServer = (data, payment) => {
+        fetch('http://localhost:3001/post/form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({'form': data, 'payment': payment})
+        }).then(setTimeout(function(){
+            window.location.replace("http://localhost:3000/thanks");
+        }, 2000))
+    }
+
     saveAndContinue = (e) => {
         e.preventDefault()
-        this.props.nextStep()
+        if (this.props.order_total > 0) {
+            this.props.nextStep()
+        } else {
+            this.sendDataToServer(this.props.values, {})
+        }
     }
 
     back  = (e) => {

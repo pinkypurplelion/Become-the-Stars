@@ -83,10 +83,11 @@ app.post('/verify/promo', (req, res) => {
 });
 
 app.post('/post/form', (req, res) => {
+    // console.log(req);
     const userData = req.body['form'];
     const paymentData = req.body['payment'];
     console.log('processing form submit data');
-    // console.log(userData, paymentData);
+    console.log(userData, paymentData);
     
     let uid, oid, srn, sin;
     let rid = '';
@@ -95,6 +96,7 @@ app.post('/post/form', (req, res) => {
     let urecip = false;
     let recipient_data = {};
     let extras_data = {};
+    let addon_games = {};
     
     unitools.generateAlphanumericString(10, id => uid = id);
     unitools.generateAlphanumericString(10, id => oid = id, false);
@@ -106,15 +108,34 @@ app.post('/post/form', (req, res) => {
         urecip = true;
         recipient_data = {id: rid, name: userData.recipient_name, email: userData.recipient_email, message: userData.recipient_message};
     }
+        
+    if (userData.ksp === 'true')
+        addon_games['ksp'] = true
 
+    if (userData.us2 === 'true')
+        addon_games['us2'] = true
+
+    if (userData.se === 'true')
+        addon_games['se'] = true
 
     if (userData.astrology_package === 'true')
-        extras_data = {astrology_package: {
+        extras_data['astrology_package'] = {
             price: userData.astrology_package_price,
             astrology_sign: userData.astrology_sign
-        }}
-        
+        }
     
+    if (userData.embossed_certificate === 'true')
+        extras_data['embossed_certificate'] = true;
+
+    if (userData.a3_star_chart === 'true')
+        extras_data['a3_star_chart'] = true;
+
+    if (userData.book_space_hard === 'true')
+        extras_data['book_space_hard'] = true;
+
+    if (userData.book_star_hard === 'true')
+        extras_data['book_star_hard'] = true;
+
     let package_data = {tier: userData.package_type,
         extras: extras_data,
     };
@@ -131,6 +152,7 @@ app.post('/post/form', (req, res) => {
         message: userData.message,
         is_user_recipient: urecip, 
         recipient: recipient_data, 
+        addon_games: addon_games,
         paypal_details: {
             payer_id: paymentData.payerID,
             payment_id: paymentData.paymentID,

@@ -21,6 +21,7 @@ var orderSchema = new Schema({
         email: String,
         message: String
     },
+    addon_games: {},
     paypal_details: {
         payer_id: String,
         payment_id: String,

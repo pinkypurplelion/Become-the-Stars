@@ -19,7 +19,8 @@ class Contact extends Component {
           <div class="row">
             <div class="col-8 offset-2">
               <p>
-                The easiest thing to do is post on our <a href="http://forum.kirupa.com">forums</a>.
+                We are currently updating our contact system. For now, you can find us on instagram, twitter and facebook (@becomethestars). <br />
+                You can also email us at contact@becomethestars.com 
               </p>
             </div>
           </div>
