@@ -8,14 +8,14 @@ class OrderConfirmation extends Component{
     }
 
     sendDataToServer = (data, payment) => {
-        fetch('http://localhost:3001/post/form', {
+        fetch('https://www.becomethestars.com/api/post/form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({'form': data, 'payment': payment})
         }).then(setTimeout(function(){
-            window.location.replace("http://localhost:3000/thanks");
+            window.location.replace("https://www.becomethestars.com/thanks");
         }, 2000))
     }
 
@@ -37,7 +37,7 @@ class OrderConfirmation extends Component{
     checkPromoCode = (e) => {
         e.preventDefault()
         console.log("checking promo code")
-        fetch('http://localhost:3001/verify/promo', {
+        fetch('https://www.becomethestars.com/api/verify/promo', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

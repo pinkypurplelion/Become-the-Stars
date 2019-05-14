@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import {Helmet} from "react-helmet";
+import {Link} from "react-router-dom";
 
 import StarDigital from './../static/images/star-digital.jpg';
 import StarPremium from './../static/images/star-premium.jpg';
@@ -36,7 +37,7 @@ class Stuff extends Component {
                     no physical gifts <br />
                     addon astrology pack <br />
                     standard star <br /> <br />
-                    <a class="btn btn-outline-info form-button-promo" href="/store/digital">Buy Now >></a>
+                    <Link class="btn btn-outline-info form-button-promo" to="/store/digital">Buy Now >></Link>
                   </p>
                   <p class="card-price">From $15</p>
                   <hr class="bts-hr-white"/>
@@ -54,7 +55,7 @@ class Stuff extends Component {
                     premium physical gifts <br />
                     addon astrology pack <br />
                     constellation star <br /> <br />
-                    <a class="btn btn-outline-info form-button-promo" href="/store/premium">Buy Now >></a>
+                    <Link class="btn btn-outline-info form-button-promo" to="/store/premium">Buy Now >></Link>
                   </p>
                   <p class="card-price">From $30</p>
                   <hr class="bts-hr-white"/>
@@ -72,7 +73,7 @@ class Stuff extends Component {
                     deluxe physical gifts <br />
                     optional astrology pack <br />
                     superbright star <br /> <br />
-                    <a class="btn btn-outline-info form-button-promo" href="/store/deluxe">Buy Now >></a>
+                    <Link class="btn btn-outline-info form-button-promo" to="/store/deluxe">Buy Now >></Link>
                   </p>
                   <p class="card-price">From $65</p>
                   <hr class="bts-hr-white"/>

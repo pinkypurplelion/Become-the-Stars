@@ -9,12 +9,12 @@ var Star = require('./models/Star');
 var Promo = require('./models/Promo.js');
 
 //Connect to database
-mongoose.connect('mongodb://localhost:27017/becomethestars', {useNewUrlParser: true});
+// mongoose.connect('mongodb://localhost:27017/becomethestars', {useNewUrlParser: true});
 
 //Authentication
-let user = encodeURIComponent('Admin'),
-password = encodeURIComponent('Willy Wonka Chocolate Factory')
-// mongoose.connect(`mongodb://${user}:${password}@localhost:27017/becomethestars`, {useNewUrlParser: true});
+let user = encodeURIComponent('bts_backend'),
+password = encodeURIComponent('gHRcSObRNNw72DmI')
+mongoose.connect(`mongodb+srv://${user}:${password}@cluster0-vyboo.mongodb.net/becomethestars?retryWrites=true`, {useNewUrlParser: true});
 
 //Verify connection to database
 var db = mongoose.connection;
@@ -27,8 +27,8 @@ app.use(bodyParser.json()); // support json encoded bodies
 app.use(bodyParser.urlencoded({
     extended: true
 })); // support encoded bodies
-app.use(cors({
-    origin: 'http://localhost:3000'
+app.use(cors({//http://localhost:3000
+    origin: 'https://becomethestars.com'
 }));
 
 const port = 3001;
@@ -38,8 +38,9 @@ function authenticateUser(authID) {
 
 };
 
-
 app.get('/', (req, res) => res.send('Hello World!'));
+
+app.get('/api', (req, res) => res.send('this is api route'));
 
 app.get('/get/:authID/promos', (req, res) => {
     Promo.find({}, (error, promos) => {

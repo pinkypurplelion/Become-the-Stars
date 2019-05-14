@@ -25,14 +25,14 @@ class PaymentSelection extends Component {
     }
     
     sendDataToServer = (data, payment) => {
-        fetch('http://localhost:3001/post/form', {
+        fetch('https://www.becomethestars.com/api/post/form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({'form': data, 'payment': payment})
         }).then(setTimeout(function(){
-            window.location.replace("http://localhost:3000/thanks");
+            window.location.replace("https://www.becomethestars.com/thanks");
         }, 2000))
     }
 

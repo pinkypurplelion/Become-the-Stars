@@ -20,7 +20,7 @@ class Contact extends Component {
             <div class="col-8 offset-2">
               <p>
                 We are currently updating our contact system. For now, you can find us on instagram, twitter and facebook (@becomethestars). <br />
-                You can also email us at contact@becomethestars.com 
+                You can also email us at contact@becomethestars.com <br />
               </p>
             </div>
           </div>
