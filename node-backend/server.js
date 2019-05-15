@@ -98,6 +98,7 @@ app.post('/post/form', (req, res) => {
     let recipient_data = {};
     let extras_data = {};
     let addon_games = {};
+    let promo = {};
     
     unitools.generateAlphanumericString(10, id => uid = id);
     unitools.generateAlphanumericString(10, id => oid = id, false);
@@ -137,6 +138,11 @@ app.post('/post/form', (req, res) => {
     if (userData.book_star_hard === 'true')
         extras_data['book_star_hard'] = true;
 
+    if (userData.discount > 0) {
+        promo['discount'] = userData.discount;
+        promo['promo_code'] = userData.promo;
+    }
+
     let package_data = {tier: userData.package_type,
         extras: extras_data,
     };
@@ -154,6 +160,7 @@ app.post('/post/form', (req, res) => {
         is_user_recipient: urecip, 
         recipient: recipient_data, 
         addon_games: addon_games,
+        promo: promo,
         paypal_details: {
             payer_id: paymentData.payerID,
             payment_id: paymentData.paymentID,
