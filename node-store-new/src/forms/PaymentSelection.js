@@ -12,11 +12,10 @@ var orderSubmitted = false;
 
 class PaymentSelection extends Component {
     onSuccess = (payment) => {
-        e.preventDefault();
         if (!orderSubmitted)
         {
             console.log('Successful payment!');
-            this.sendDataToServer(this.props.values, payment)
+            this.sendDataToServer(this.props.values, payment, this.props.nextStep)
             orderSubmitted = true;
         }
     }
@@ -29,7 +28,7 @@ class PaymentSelection extends Component {
         console.log('Cancelled payment!');
     }
     
-    sendDataToServer = (data, payment) => {
+    sendDataToServer = (data, payment, callback) => {
         fetch('https://www.becomethestars.com/api/post/form', {
             method: 'POST',
             headers: {
@@ -37,7 +36,8 @@ class PaymentSelection extends Component {
             },
             body: JSON.stringify({'form': data, 'payment': payment})
         }).then(setTimeout(function(){
-            window.location.replace("https://www.becomethestars.com/thanks");
+            // window.location.replace("https://www.becomethestars.com/#/thanks");
+            callback();
         }, 2000))
     }
 

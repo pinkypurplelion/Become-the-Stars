@@ -7,7 +7,7 @@ class OrderConfirmation extends Component{
         promo_error: '',
     }
 
-    sendDataToServer = (data, payment) => {
+    sendDataToServer = (data, payment, callback) => {
         fetch('https://www.becomethestars.com/api/post/form', {
             method: 'POST',
             headers: {
@@ -15,7 +15,8 @@ class OrderConfirmation extends Component{
             },
             body: JSON.stringify({'form': data, 'payment': payment})
         }).then(setTimeout(function(){
-            window.location.replace("https://www.becomethestars.com/thanks");
+            // window.location.replace("https://www.becomethestars.com/#/thanks");
+            callback();
         }, 2000))
     }
 
@@ -25,7 +26,7 @@ class OrderConfirmation extends Component{
         if (this.props.values.order_total > 0) {
             this.props.nextStep()
         } else {
-            this.sendDataToServer(this.props.values, {})
+            this.sendDataToServer(this.props.values, {}, this.props.nextStep)
         }
     }
 

@@ -3,6 +3,7 @@ import StarDetails from './StarDetails';
 import UserDetails from './UserDetails';
 import OrderConfirmation from './OrderConfirmation'
 import PaymentSelection from './PaymentSelection';
+import OrderThanks from './OrderThanks';
 // import Success from './Success';
 var astro_add = 0;
 var star_add = 0;
@@ -167,6 +168,8 @@ class MainForm extends Component {
                     handleChange = {this.handleChange}
                     values={values}
                     />
+        case 5:
+                    return <OrderThanks />
         default:
             return <h1>Form error. Please reload the page or <a href='/contact'>contact us.</a></h1>
         // case 3:
