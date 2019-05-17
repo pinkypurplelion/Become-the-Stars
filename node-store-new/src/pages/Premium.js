@@ -31,7 +31,7 @@ class Digital extends Component {
                             <img src={StarPremium} alt="" class="img-fluid"/>
                             <hr class="bts-hr-white"/>
                             <h1 class="package-heading-form">
-                                Package Description
+                                Premium Package
                             </h1>
                             <h1 class="package-price">
                                 Starting from $30
@@ -88,7 +88,7 @@ class Digital extends Component {
                             <img src={StarPremiumBanner} alt="" class="img-fluid"/>
                             <hr class="bts-hr-white"/>
                             <h1 class="package-heading-form">
-                                Package Description
+                                Premium Package
                             </h1>
                             <h1 class="package-price">
                                 Starting from $30

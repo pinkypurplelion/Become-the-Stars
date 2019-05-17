@@ -28,7 +28,7 @@ class Digital extends Component {
                             <img src={StarDeluxe} alt="" class="img-fluid"/>
                             <hr class="bts-hr-white"/>
                             <h1 class="package-heading-form">
-                                Package Description
+                                Deluxe Package
                             </h1>
                             <h1 class="package-price">
                                 Starting from $65
@@ -85,7 +85,7 @@ class Digital extends Component {
                             <img src={StarDeluxeBanner} alt="" class="img-fluid"/>
                             <hr class="bts-hr-white"/>
                             <h1 class="package-heading-form">
-                                Package Description
+                                Deluxe Package
                             </h1>
                             <h1 class="package-price">
                                 Starting from $65

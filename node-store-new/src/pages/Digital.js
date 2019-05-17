@@ -28,7 +28,7 @@ class Digital extends Component {
                             <img src={StarDigital} alt="" class="img-fluid"/>
                             <hr class="bts-hr-white"/>
                             <h1 class="package-heading-form">
-                                Package Description
+                                Digital Package
                             </h1>
                             <h1 class="package-price">
                                 Starting from $15
@@ -68,7 +68,7 @@ class Digital extends Component {
                   <img src={StarDigitalBanner} alt="" class="img-fluid"/>
                   <hr class="bts-hr-white"/>
                   <h1 class="package-heading-form">
-                      Package Description
+                    Digital Package
                   </h1>
                   <h1 class="package-price">
                       Starting from $15
