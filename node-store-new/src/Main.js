@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {
   Route,
-  Router,
+  BrowserRouter,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
@@ -30,7 +30,7 @@ class Main extends Component {
 
     render() {
       return (
-        <Router history={history}>
+        <BrowserRouter history={history}>
             <body>
                 <div >
                     <Banner />
@@ -45,15 +45,36 @@ class Main extends Component {
                         <Route exact path="/store/deluxe" component={Deluxe}/>
                     </div>
                 </div>
-                <footer>
+
+                {/* Desktop & Tablet Devices */}
+                <footer class="d-none d-sm-block d-md-block">
                   <div class="col-4 offset-4 text-center">
                     <hr class="bts-hr-white"/>
                     <p>Become the Stars <br />
                     <a href="/#/store" style={{color: "white"}}>Store</a> | <a href="/#/" style={{color: "white"}}>Home</a> | <a href="/#/contact" style={{color: "white"}}>Contact</a></p>
                   </div>
+                  <div class="col-10 offset-1 text-center">
+                  <p style={{fontSize: "0.78vw", color: "gray"}}>
+                      While Become the Stars while never assign the same star to be named twice, we unfortunately cannot control our competitors or other organisations. Since these stars are named and registered purely with BTS, without the involvment of regulatory or governing bodies, each star naming organisation has its own star database from which is assigns stars. It is important to understand that by naming your star with BTS, and by purchasing a gift package, the star's official name with the IAU (International Astronomical Union) - which is assigned according to a strict protocol - is not changed nor modified. These gifts are purely novelty and symbolic, offering no legal ownership or naming rights over these stars.
+                    </p>
+                  </div>
+                </footer>
+
+                {/* Mobile Devices */}
+                <footer class="d-block d-sm-none d-md-none">
+                  <div class="col-10 offset-1 text-center">
+                    <hr class="bts-hr-white"/>
+                    <p>Become the Stars <br />
+                    <a href="/#/store" style={{color: "white"}}>Store</a> | <a href="/#/" style={{color: "white"}}>Home</a> | <a href="/#/contact" style={{color: "white"}}>Contact</a></p>
+                  </div>
+                  <div class="col-12 text-center">
+                  <p style={{fontSize: "3vw", color: "gray"}}>
+                      While Become the Stars while never assign the same star to be named twice, we unfortunately cannot control our competitors or other organisations. Since these stars are named and registered purely with BTS, without the involvment of regulatory or governing bodies, each star naming organisation has its own star database from which is assigns stars. It is important to understand that by naming your star with BTS, and by purchasing a gift package, the star's official name with the IAU (International Astronomical Union) - which is assigned according to a strict protocol - is not changed nor modified. These gifts are purely novelty and symbolic, offering no legal ownership or naming rights over these stars.
+                    </p>
+                  </div>
                 </footer>
             </body>
-        </Router>
+        </BrowserRouter>
       );
     }
   }

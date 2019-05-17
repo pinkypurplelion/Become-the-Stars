@@ -8,12 +8,17 @@ const CLIENT = {
 
 const ENV = process.env.NODE_ENV === 'production' ? 'production' : 'sandbox';
 
-
+var orderSubmitted = false;
 
 class PaymentSelection extends Component {
     onSuccess = (payment) => {
-        console.log('Successful payment!');
-        this.sendDataToServer(this.props.values, payment)
+        e.preventDefault();
+        if (!orderSubmitted)
+        {
+            console.log('Successful payment!');
+            this.sendDataToServer(this.props.values, payment)
+            orderSubmitted = true;
+        }
     }
     
     onError = (error) => {
